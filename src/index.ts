@@ -3,7 +3,8 @@ import { staticPages as baseStaticPages } from '@static-pages/core';
 import type { ReadOptions, WriteOptions, Filesystem } from '@static-pages/io';
 import { read, isReadOptions, write, isWriteOptions } from '@static-pages/io';
 
-export type { Filesystem };
+export type { ReadOptions, WriteOptions, Filesystem };
+export { read, isReadOptions, write, isWriteOptions };
 
 const isIterable = <T>(x: unknown): x is Iterable<T> => !!x && typeof x === 'object' && Symbol.iterator in x && typeof x[Symbol.iterator] === 'function';
 const isAsyncIterable = <T>(x: unknown): x is AsyncIterable<T> => !!x && typeof x === 'object' && Symbol.asyncIterator in x && typeof x[Symbol.asyncIterator] === 'function';
