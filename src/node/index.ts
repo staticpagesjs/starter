@@ -1,10 +1,6 @@
 import type { Route as BaseRoute } from '@static-pages/core';
 import { staticPages as baseStaticPages } from '@static-pages/core';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore CJS compilation step cannot handle node16 style imports
 import type { ReadOptions, WriteOptions, Filesystem } from '@static-pages/io/node';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore CJS compilation step cannot handle node16 style imports
 import { read, isReadOptions, write, isWriteOptions } from '@static-pages/io/node';
 
 export type { ReadOptions, WriteOptions, Filesystem };
