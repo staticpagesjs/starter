@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@static-pages/core": "^7.0.0-beta.3",
-    "@static-pages/io": "^0.0.7"
+    "@static-pages/io": "^0.0.8"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",

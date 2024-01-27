@@ -6,8 +6,8 @@ import { read, isReadOptions, write, isWriteOptions } from '@static-pages/io';
 export type { ReadOptions, WriteOptions, Filesystem };
 export { read, isReadOptions, write, isWriteOptions };
 
-const isIterable = <T>(x: unknown): x is Iterable<T> => !!x && typeof x === 'object' && Symbol.iterator in x && typeof x[Symbol.iterator] === 'function';
-const isAsyncIterable = <T>(x: unknown): x is AsyncIterable<T> => !!x && typeof x === 'object' && Symbol.asyncIterator in x && typeof x[Symbol.asyncIterator] === 'function';
+const isIterable = (x: any): x is Iterable<any> => !!x && typeof x === 'object' && typeof x[Symbol.iterator] === 'function';
+const isAsyncIterable = (x: any): x is AsyncIterable<any> => !!x && typeof x === 'object' && typeof x[Symbol.asyncIterator] === 'function';
 
 export interface Route<F = unknown, T = unknown> {
 	from: BaseRoute['from'] | ReadOptions<F>;
