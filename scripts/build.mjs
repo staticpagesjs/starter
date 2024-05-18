@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
-import { rmSync, readdirSync, renameSync, writeFileSync, readFileSync, realpathSync, cpSync } from 'node:fs';
-import { join, normalize, extname, basename } from 'node:path';
+import { rmSync, readdirSync, writeFileSync, readFileSync, realpathSync, cpSync } from 'node:fs';
+import { join, normalize, extname } from 'node:path';
 import * as semver from 'semver';
 
 const DIST_DIR = 'package';
@@ -14,7 +14,7 @@ execSync(normalize('./node_modules/.bin/tsc'), { stdio: 'inherit' });
 // Generate CJS version
 execSync(normalize('./node_modules/.bin/babel') + ' package --out-dir package --out-file-extension .cjs', { stdio: 'inherit' });
 
-// Convert .d.mts to .d.cts
+// Convert .d.mts to .d.cts (experimental)
 const files = readdirSync('package', { recursive: true, withFileTypes: true });
 for (const file of files) {
 	if (file.isFile() && extname(file.name) === '.mts') {
@@ -24,7 +24,7 @@ for (const file of files) {
 			target,
 			readFileSync(source, 'utf8')
 				.replace(/(import|require)\((["']\.\.?\/.+?)\.mjs(["'])\)/g, `$1($2.cjs$3)`)
-				.replace(/(import|export)\s+((?:\{[^}]*?\}|\w+|\*\s+as\s+\w+)\s+from\s+)?(["']\.\.?\/.+?)\.mjs(["']);?/g, `$1 $2$3.cjs$4;`)
+				.replace(/((?:import|export)\s+(?:type\s)?(?:\{[^}]*?\}|\w+|\*\s+as\s+\w+)\s+from\s+)?(["'].+?)\.mjs(["'];?)/g, '$1$2.cjs$3')
 		);
 	}
 }
