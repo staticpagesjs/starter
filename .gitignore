@@ -1,11 +1,5 @@
-/build/
-/node/
 /node_modules/
 /coverage/
+/package/
 *.log
 *.tgz
-/*.d.ts
-/*.js
-/*.cjs
-/*.mjs
-!/.eslintrc.cjs

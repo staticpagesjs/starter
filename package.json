@@ -1,22 +1,22 @@
 {
+  "private": true,
   "name": "@static-pages/starter",
   "version": "0.0.8",
   "description": "Wires together a basic set of packages.",
-  "type": "module",
-  "module": "./index.js",
   "main": "./index.cjs",
-  "types": "./index.d.ts",
+  "module": "./index.mjs",
+  "types": "./index.d.mts",
   "exports": {
     ".": {
-      "import": "./index.js",
       "require": "./index.cjs",
-      "types": "./index.d.ts"
+      "import": "./index.mjs",
+      "types": "./index.d.mts"
     },
     "./package.json": "./package.json",
     "./node": {
-      "import": "./node/index.js",
       "require": "./node/index.cjs",
-      "types": "./node/index.d.js"
+      "import": "./node/index.mjs",
+      "types": "./node/index.d.mts"
     }
   },
   "engines": {
@@ -24,28 +24,30 @@
     "deno": ">=1.0.0"
   },
   "scripts": {
-    "prepack": "npm run build && npm run test",
-    "postversion": "git push && git push --tags",
-    "clean": "node scripts/clean.js",
-    "build": "node scripts/build.js",
-    "watch": "node scripts/watch.js",
+    "clean": "node scripts/clean.mjs",
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/watch.mjs",
     "test": "mocha",
-    "coverage": "c8 -r text -r text-summary -r lcov --include \"*.js\" npm test",
-    "lint": "eslint src"
+    "coverage": "c8 -r text -r text-summary -r lcov --include \"**/*.mjs\" npm test",
+    "prepublishOnly": "echo Default 'npm publish' disabled, use 'npm run publish' instead && exit 1",
+    "publish": "npm run build && npm run test && cd package && npm publish",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "@static-pages/core": "^7.0.0-beta.3",
-    "@static-pages/io": "^0.0.8"
+    "@static-pages/core": "^7.0.0-beta.5",
+    "@static-pages/io": "^0.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20.10.5",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "@typescript-eslint/parser": "^6.15.0",
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
+    "@types/node": "^20.12.12",
+    "babel-plugin-replace-import-extension": "^1.1.4",
     "c8": "^9.1.0",
-    "chokidar": "^3.5.3",
-    "eslint": "^8.1.0",
-    "mocha": "^10.2.0",
-    "typescript": "^5.1.6"
+    "chokidar": "^3.6.0",
+    "mocha": "^10.4.0",
+    "semver": "^7.6.2",
+    "typescript": "^5.4.5"
   },
   "author": "László BULIK",
   "license": "MPL-2.0",
