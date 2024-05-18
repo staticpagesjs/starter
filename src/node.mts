@@ -1,7 +1,7 @@
 import type { Route as BaseRoute } from '@static-pages/core';
 import { staticPages as baseStaticPages } from '@static-pages/core';
-import type { ReadOptions, WriteOptions, Filesystem } from '@static-pages/io/node.mjs';
-import { read, isReadOptions, write, isWriteOptions } from '@static-pages/io/node.mjs';
+import type { ReadOptions, WriteOptions, Filesystem } from '@static-pages/io/node';
+import { read, isReadOptions, write, isWriteOptions } from '@static-pages/io/node';
 
 export type { ReadOptions, WriteOptions, Filesystem };
 export { read, isReadOptions, write, isWriteOptions };

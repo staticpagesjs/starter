@@ -1,6 +1,6 @@
 {
 	"plugins": [
-		["replace-import-extension", { "extMapping": { ".js": ".cjs" }}],
+		["replace-import-extension", { "extMapping": { ".mjs": ".cjs" }}],
 		["@babel/transform-modules-commonjs"]
 	]
 }
