@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@static-pages/starter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Wires together a basic set of packages.",
   "main": "./index.cjs",
   "module": "./index.mjs",
