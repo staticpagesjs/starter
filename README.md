@@ -22,7 +22,7 @@ This project targets small and medium sized websites. The rendering process trie
 ## Usage
 
 ```js
-import staticPages from '@static-pages/starter/node';
+import staticPages from '@static-pages/starter/node.mjs';
 import twig from '@static-pages/twig';
 
 staticPages({
