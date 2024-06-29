@@ -42,8 +42,8 @@
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "@static-pages/core": "^7.0.0-beta.5",
-    "@static-pages/io": "^0.1.0"
+    "@static-pages/core": "^7.0.0",
+    "@static-pages/io": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.5",
