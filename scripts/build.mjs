@@ -23,8 +23,16 @@ for (const file of files) {
 		writeFileSync(
 			target,
 			readFileSync(source, 'utf8')
-				.replace(/(import|require)\((["']\.\.?\/.+?)\.mjs(["'])\)/g, `$1($2.cjs$3)`)
+				.replace(/(import|require)\((["'].+?)\.mjs(["'])\)/g, `$1($2.cjs$3)`)
 				.replace(/((?:import|export)\s+(?:type\s)?(?:\{[^}]*?\}|\w+|\*\s+as\s+\w+)\s+from\s+)?(["'].+?)\.mjs(["'];?)/g, '$1$2.cjs$3')
+		);
+	}
+	else if (file.isFile() && extname(file.name) === '.cjs') {
+		const filename = join(file.parentPath ?? file.path, file.name);
+		writeFileSync(
+			filename,
+			readFileSync(filename, 'utf8')
+				.replace(/(require)\((["'].+?)\.mjs(["'])\)/g, `$1($2.cjs$3)`)
 		);
 	}
 }
