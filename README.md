@@ -12,7 +12,7 @@ Yes! Because I browsed the whole jamstack scene, but could not find one which
 
 And because I wrote a ton of custom static generators before; I tought I can improve the concepts to a point where its (hopefully) useful for others.
 
-This project is structured as a toolkit split to many packages, published under the [@static-pages](https://www.npmjs.com/search?q=%40static-pages) namespace on NPM.
+This project is structured as a toolkit split to many packages, published under the [@static-pages](https://www.npmjs.com/org/static-pages) namespace on NPM.
 This package is a good point to begin with.
 
 ## Where should I use this?
