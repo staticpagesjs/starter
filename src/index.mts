@@ -1,10 +1,10 @@
 import type { Route as BaseRoute } from '@static-pages/core';
 import { staticPages as baseStaticPages } from '@static-pages/core';
 import type { ReadOptions, WriteOptions, Filesystem } from '@static-pages/fs';
-import { read, isReadOptions, write, isWriteOptions } from '@static-pages/fs';
+import { read, isReadOptions, write, isWriteOptions, createFilesystem } from '@static-pages/fs';
 
 export type { ReadOptions, WriteOptions, Filesystem };
-export { read, isReadOptions, write, isWriteOptions };
+export { read, isReadOptions, write, isWriteOptions, createFilesystem };
 
 const isIterable = (x: any): x is Iterable<any> => !!x && typeof x === 'object' && typeof x[Symbol.iterator] === 'function';
 const isAsyncIterable = (x: any): x is AsyncIterable<any> => !!x && typeof x === 'object' && typeof x[Symbol.asyncIterator] === 'function';
