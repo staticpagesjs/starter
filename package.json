@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@static-pages/core": "^7.0.0",
-    "@static-pages/fs": "^2.0.1"
+    "@static-pages/fs": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.5",
